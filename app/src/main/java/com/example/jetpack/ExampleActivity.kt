@@ -9,23 +9,62 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.setContent
-import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.unit.dp
+import androidx.ui.tooling.preview.Preview
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.text.style.TextOverflow
-//https://developer.android.com/jetpack/compose/layout
-class MainActivity : AppCompatActivity() {
+
+class ExampleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            NewsStory()
+            OverlapText(text = "Ask")
+            newStoryWithColumn()
+            newsStory()
+        }
+    }
+    // Column function lets you stack elements vertically.
+    @Composable
+    fun newStoryWithColumn(){
+        Column (
+            modifier = Modifier.padding(16.dp)
+        ){
+          //  Image(image)
+            Text("A day in Shark Fin Cove")
+            Text("Davenport, California")
+            Text("December 2018")
         }
     }
 
+    @Preview
     @Composable
-    fun NewsStory() {
+    fun previewNewStoryWithColumn() {
+        newStoryWithColumn()
+    }
+
+
+    // cannot do preview because it has params in composable function
+    @Composable
+    fun OverlapText(text: String) {
+        Text(text = text)
+        Text(text = "Ask" + text)
+    }
+    /**
+     * It's a best practice to create separate preview functions that aren't
+     * called by the app; having dedicated preview functions improves performance,
+     * and also makes it easier to set up multiple previews later on.
+     */
+    @Preview
+    @Composable
+    fun previewContentTile() {
+        OverlapText(text = "Cave")
+    }
+
+    @Composable
+    fun newsStory() {
         val image = imageResource(R.drawable.sky)
         MaterialTheme {
             val typography = MaterialTheme.typography
@@ -55,5 +94,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 }
