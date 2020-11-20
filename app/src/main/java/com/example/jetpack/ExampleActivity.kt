@@ -16,6 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.text.style.TextOverflow
+import com.example.jetpack.ui.te
 
 class ExampleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +26,7 @@ class ExampleActivity : AppCompatActivity() {
             newStoryWithColumn()
             newsStory()
         }
+
     }
     // Column function lets you stack elements vertically.
     @Composable
@@ -32,7 +34,6 @@ class ExampleActivity : AppCompatActivity() {
         Column (
             modifier = Modifier.padding(16.dp)
         ){
-          //  Image(image)
             Text("A day in Shark Fin Cove")
             Text("Davenport, California")
             Text("December 2018")

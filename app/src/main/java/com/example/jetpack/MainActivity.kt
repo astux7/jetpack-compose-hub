@@ -15,6 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
+import com.example.jetpack.ui.te
+
 //https://developer.android.com/jetpack/compose/layout
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +42,8 @@ class MainActivity : AppCompatActivity() {
                 Image(image, modifier = imageModifier,
                     contentScale = ContentScale.Crop)
                 Spacer(Modifier.preferredHeight(16.dp))
+                te.t("https://images.contentstack.io/v3/assets/blt67d444169971fbeb/bltb16c4318e44128eb/5f29311d48bdc47f3f1e5132/skyq.jpg", applicationContext)
+
 
                 Text(
                     "A day wandering through the sandhills " +
