@@ -54,6 +54,10 @@ typealias SymbolAnnotation = Pair<AnnotatedString, StringAnnotation?>
  * @param text contains message to be parsed
  * @return AnnotatedString with annotations used inside the ClickableText wrapper
  */
+
+// https://github.com/android/compose-samples/blob/7da64ff119990df23bd5a026be8c2757ebbd2a82/Jetchat/app/src/main/java/com/example/compose/jetchat/conversation/MessageFormatter.kt
+
+
 @Composable
 fun textFormatter(
     text: String
