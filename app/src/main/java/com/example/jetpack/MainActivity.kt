@@ -32,7 +32,8 @@ class MainActivity : AppCompatActivity() {
         setContent {
             Column {
 //                NewsStory()
-                hh()
+//                hh()
+                realDeal()
             }
         }
     }
@@ -61,7 +62,11 @@ class MainActivity : AppCompatActivity() {
             },
             bottomBar = {
                 BottomAppBar {
-                    Text("BottomAppBar")
+                    Row(
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        ImageLoader.fromDrawable(R.drawable.ic_launcher_foreground)
+                    }
                 }
             }
         )
