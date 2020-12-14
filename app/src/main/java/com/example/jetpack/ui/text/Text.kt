@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
+import utils.textFormatter
 
 
 interface Text
@@ -17,7 +18,7 @@ class Title(val text: String): Text {
     @Composable
     fun render() {
         Text(
-            text,
+            textFormatter(text = text),
             style = MaterialTheme.typography.h5,
             modifier = Modifier
                 .padding(
@@ -34,7 +35,7 @@ class Body(val text: String): Text {
     @Composable
     fun render() {
         Text(
-            text = text,
+            textFormatter(text = text),
             modifier = Modifier
                 .padding(
                     start = 16.dp,
