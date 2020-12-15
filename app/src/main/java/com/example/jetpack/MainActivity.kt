@@ -20,6 +20,7 @@ import androidx.ui.tooling.preview.Preview
 import com.example.jetpack.ui.ActionArea
 import com.example.jetpack.ui.ImageLoader
 import com.example.jetpack.ui.Primary
+import com.example.jetpack.ui.appbar.NavigationBar
 import com.example.jetpack.ui.button.Secondary
 
 //https://developer.android.com/jetpack/compose/layout
@@ -62,11 +63,12 @@ class MainActivity : AppCompatActivity() {
             },
             bottomBar = {
                 BottomAppBar {
-                    Row(
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        ImageLoader.fromDrawable(R.drawable.ic_launcher_foreground)
-                    }
+                    NavigationBar().render()
+//                    Row(
+//                        modifier = Modifier.fillMaxWidth()
+//                    ) {
+//                        ImageLoader.fromDrawable(R.drawable.ic_launcher_foreground)
+//                    }
                 }
             }
         )
