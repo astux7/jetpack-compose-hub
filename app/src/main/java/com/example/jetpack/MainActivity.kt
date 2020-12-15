@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 Text(text = "drawerContent")
             },
             bodyContent = {
-                Primary("Your Bill", "See a break down of your bill here", url, aa).render()
+                Primary("Your *Bill*", "See a break _down_ of your `bill here`", url, aa).render()
             },
             bottomBar = {
                 BottomAppBar {
@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
     @Composable
     fun hh() {
         ScrollableColumn {
-            Primary("Your Bill", "See a break down of your bill here", url, aa).render()
+            Primary("Your Bill", "See a **break down** of your bill here", url, aa).render()
             Primary("Your Bill", "See a break down of your bill here", url, aa).render()
             Primary("Your Bill", "See a break down of your bill here", url, aa).render()
             Primary("Your Bill", "See a break down of your bill here", url, aa).render()
