@@ -6,6 +6,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollableColumn
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumnFor
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -15,11 +17,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.sp
 import androidx.ui.tooling.preview.Preview
 import com.example.jetpack.ui.ActionArea
 import com.example.jetpack.ui.ImageLoader
 import com.example.jetpack.ui.Primary
+import com.example.jetpack.ui.appbar.NavigationBar
 import com.example.jetpack.ui.button.Secondary
 
 //https://developer.android.com/jetpack/compose/layout
@@ -30,11 +35,35 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Column {
+            val state = rememberLazyListState()
+            Scaffold(
+                topBar = {
+                    TopAppBar(title = {
+                        Text("TopAppBar")
+                    })
+                },
+                floatingActionButtonPosition = FabPosition.End,
+                floatingActionButton = {
+                    FloatingActionButton(onClick = {})
+                    {
+                        Text("X")
+                    }
+                },
+                drawerContent = {
+                    Text(text = "drawerContent")
+                },
+                bodyContent = {
 //                NewsStory()
 //                hh()
-                realDeal()
-            }
+
+                LazyColumnFor(
+                    state = state,
+                    items = (0..1000).toList(),
+                    modifier = Modifier.fillMaxWidth()
+                    ) {
+                    Text("$it", style = TextStyle(fontSize = 40.sp))
+                }
+            })
         }
     }
 
@@ -58,15 +87,28 @@ class MainActivity : AppCompatActivity() {
                 Text(text = "drawerContent")
             },
             bodyContent = {
-                Primary("Your *Bill*", "See a break _down_ of your `bill here`", url, aa).render()
+                ScrollableColumn {
+                    Primary("Your *Bill*", "See a break _down_ of your `bill here`", "https://image.flaticon.com/icons/png/512/972/972601.png", aa).render()
+                    Primary(
+                        "Your *Order*",
+                        "See when your *order* will arrive `here`",
+                        url,
+                        aa
+                    ).render()
+                    Primary("Your *TV*", "View your TV packaged", "https://i.pinimg.com/originals/9e/d8/61/9ed86194c90b60ad5ce0e14fdb1b97d5.png", aa).render()
+                    Primary("Your *Bill*", "See a break _down_ of your `bill here`", "https://image.flaticon.com/icons/png/512/972/972601.png", aa).render()
+                    Primary(
+                        "Your *Order*",
+                        "See when your *order* will arrive `here`",
+                        url,
+                        aa
+                    ).render()
+                    Primary("Your *TV*", "View your TV packaged", "https://i.pinimg.com/originals/9e/d8/61/9ed86194c90b60ad5ce0e14fdb1b97d5.png", aa).render()
+                }
             },
             bottomBar = {
                 BottomAppBar {
-                    Row(
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        ImageLoader.fromDrawable(R.drawable.ic_launcher_foreground)
-                    }
+                    NavigationBar().render()
                 }
             }
         )
