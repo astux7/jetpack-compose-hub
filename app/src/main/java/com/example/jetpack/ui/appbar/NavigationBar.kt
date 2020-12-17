@@ -1,5 +1,7 @@
 package com.example.jetpack.ui.appbar
 
+import androidx.compose.foundation.Text
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.FabPosition
@@ -24,31 +26,43 @@ class NavigationBar {
                 color = Color.Transparent,
                 modifier = Modifier.weight(1f)
             ) {
-                ImageLoader.fromDrawable(R.drawable.ic_launcher_background)
+                ImageLoader.fromUrl("https://image.flaticon.com/icons/png/512/69/69524.png")
             }
             Surface(
                 color = Color.Transparent,
                 modifier = Modifier.weight(1f)
             ){
-                ImageLoader.fromDrawable(R.drawable.ic_launcher_background)
+                Column {
+                    ImageLoader.fromUrl("https://www.favicon.cc/logo3d/805857.png")
+                    Text("TV")
+                }
             }
             Surface(
                 color = Color.Transparent,
                 modifier = Modifier.weight(1f)
             ){
-                ImageLoader.fromDrawable(R.drawable.ic_launcher_background)
+                Column {
+                    ImageLoader.fromUrl("https://img.icons8.com/plasticine/2x/wifi-router.png")
+                    Text("Broadband")
+                }
             }
             Surface(
                 color = Color.Transparent,
                 modifier = Modifier.weight(1f)
             ){
-                ImageLoader.fromDrawable(R.drawable.ic_launcher_background)
+                Column {
+                    ImageLoader.fromUrl("https://icons-for-free.com/iconfiles/png/512/contact+mobile+phone+telephone+icon-1320186209312314268.png")
+                    Text("Mobile")
+                }
             }
             Surface(
                 color = Color.Transparent,
                 modifier = Modifier.weight(1f)
              ){
-                ImageLoader.fromDrawable(R.drawable.ic_launcher_background)
+                Column {
+                    ImageLoader.fromUrl("https://image.flaticon.com/icons/png/128/879/879200.png")
+                    Text("VIP")
+                }
             }
         }
     }
