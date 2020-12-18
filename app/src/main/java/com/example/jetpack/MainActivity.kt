@@ -35,41 +35,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val state = rememberLazyListState()
-            Scaffold(
-                topBar = {
-                    TopAppBar(title = {
-                        Text("TopAppBar")
-                    })
-                },
-                floatingActionButtonPosition = FabPosition.End,
-                floatingActionButton = {
-                    FloatingActionButton(onClick = {})
-                    {
-                        Text("X")
-                    }
-                },
-                drawerContent = {
-                    Text(text = "drawerContent")
-                },
-                bodyContent = {
-//                NewsStory()
-//                hh()
-
-                LazyColumnFor(
-                    state = state,
-                    items = (0..1000).toList(),
-                    modifier = Modifier.fillMaxWidth()
-                    ) {
-                    Text("$it", style = TextStyle(fontSize = 40.sp))
-                }
-            })
+            homeHub()
         }
     }
 
     @Preview
     @Composable
-    fun realDeal() {
+    fun homeHub() {
         Scaffold(
             topBar = {
                 TopAppBar(title = {
